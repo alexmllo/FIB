@@ -1,0 +1,26 @@
+% Instancia 1: 3 LINACS, 5 pacientes, 4 sesiones
+
+m = 3;  % Numero de LINACs
+p = 5;  % Numero de pacientes
+s = 4;  % Numero de sesiones por tanda
+
+disponible = [| 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4  % LINAC 1
+              | 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4  % LINAC 2
+              | 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4 |];  % LINAC 3
+
+% Dias en que se realizaron las solicitudes de los pacientes
+solicitud = [1, 2, 3, 2, 1];  % Solicitudes de 5 pacientes
+
+% Duracion de cada sesion en multiplos de 15 minutos
+duracion = [| 1, 1, 1, 1
+            | 1, 1, 1, 1
+            | 1, 1, 1, 1
+            | 1, 1, 1, 1
+            | 1, 1, 1, 1 |];
+
+% Separacion ideal entre sesiones
+separacion = [| 0, 1, 2, 1
+              | 0, 1, 1, 2
+              | 0, 2, 1, 2
+              | 0, 1, 1, 1
+              | 0, 1, 2, 2 |];
