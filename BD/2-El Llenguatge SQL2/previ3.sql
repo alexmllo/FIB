@@ -1,0 +1,40 @@
+CREATE TABLE DEPARTAMENTS
+         (	NUM_DPT INTEGER,
+	NOM_DPT CHAR(20),
+	PLANTA INTEGER,
+	EDIFICI CHAR(30),
+	CIUTAT_DPT CHAR(20),
+	PRIMARY KEY (NUM_DPT));
+
+CREATE TABLE PROJECTES
+         (	NUM_PROJ INTEGER,
+	NOM_PROJ CHAR(10),
+	PRODUCTE CHAR(20),
+	PRESSUPOST INTEGER,
+	PRIMARY KEY (NUM_PROJ));
+
+CREATE TABLE EMPLEATS
+         (	NUM_EMPL INTEGER,
+	NOM_EMPL CHAR(30),
+	SOU INTEGER,
+	CIUTAT_EMPL CHAR(20),
+	NUM_DPT INTEGER,
+	NUM_PROJ INTEGER,
+	PRIMARY KEY (NUM_EMPL),
+	FOREIGN KEY (NUM_DPT) REFERENCES DEPARTAMENTS (NUM_DPT),
+	FOREIGN KEY (NUM_PROJ) REFERENCES PROJECTES (NUM_PROJ));
+	
+INSERT INTO  PROJECTES VALUES (3,'PR1123','TELEVISIO',600000);
+
+INSERT INTO  DEPARTAMENTS VALUES (4,'MARKETING',3,'RIOS ROSAS','BARCELONA');
+
+INSERT INTO  EMPLEATS VALUES (3,'ROBERTO',25000,'MATARO',4,3);
+
+
+-- Doneu una sentència SQL per incrementar en 500000 el pressupost dels projectes que tenen algun empleat que treballa a BARCELONA.
+-- Pel joc de proves que trobareu al fitxer adjunt, el pressupost del projecte que hi ha d'haver després de l'execució de la sentència és 1100000
+
+UPDATE projectes
+SET pressupost = pressupost + 500000
+WHERE num_proj IN (SELECT e.num_proj FROM empleats e INNER JOIN departaments d ON e.num_dpt = d.num_dpt WHERE d.ciutat_dpt = 'BARCELONA');
+
