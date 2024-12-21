@@ -1,0 +1,113 @@
+net
+{
+	propagationenginegenerator1791944048146838126L = "edu.ucla.belief.approx.BeliefPropagationSettings@5d1da706";
+	jenginegenerator6060830225489488864L = "edu.ucla.belief.inference.JoinTreeSettings@7e323fe0";
+	recoveryenginegenerator6944530267470113528l = "edu.ucla.util.SettingsImpl@29e62c67";
+	node_size = (130 55);
+}
+
+node variable2
+{
+	states = ("Ganador_E1" "Ganador_E2" "Ganador_E3" "Ganador_E4" );
+	position = (274 -259);
+	diagnosistype = "AUXILIARY";
+	DSLxSUBMODEL = "Root Submodel";
+	ismapvariable = "false";
+	ID = "variable2";
+	label = "P1";
+	excludepolicy = "include whole CPT";
+}
+node variable3
+{
+	states = ("Ganador_E1" "Ganador_E2" "Ganador_E3" "Ganador_E4" );
+	position = (598 -255);
+	diagnosistype = "AUXILIARY";
+	DSLxSUBMODEL = "Root Submodel";
+	ismapvariable = "false";
+	ID = "variable3";
+	label = "P2";
+	excludepolicy = "include whole CPT";
+}
+node variable4
+{
+	states = ("Ganador_E1" "Ganador_E2" "Ganador_E3" "Ganador_E4" );
+	position = (436 -420);
+	diagnosistype = "AUXILIARY";
+	DSLxSUBMODEL = "Root Submodel";
+	ismapvariable = "false";
+	ID = "variable4";
+	label = "Final";
+	excludepolicy = "include whole CPT";
+}
+node variable1
+{
+	states = ("E1_VS_E2" "E1_VS_E3" "E1_VS_E4" "E2_VS_E3" "E2_VS_E4" "E3_VS_E4" );
+	position = (593 -103);
+	diagnosistype = "AUXILIARY";
+	DSLxSUBMODEL = "Root Submodel";
+	ismapvariable = "false";
+	ID = "variable1";
+	label = "Asignacion_P2";
+	excludepolicy = "include whole CPT";
+}
+node variable0
+{
+	states = ("E1_VS_E2" "E1_VS_E3" "E1_VS_E4" "E2_VS_E3" "E2_VS_E4" "E3_VS_E4" );
+	position = (274 -104);
+	diagnosistype = "AUXILIARY";
+	DSLxSUBMODEL = "Root Submodel";
+	ismapvariable = "false";
+	ID = "variable0";
+	label = "Asignacion_P1";
+	excludepolicy = "include whole CPT";
+}
+potential ( variable2 | variable0 )
+{
+	data = ((	0.5	0.5	0.0	0.0	)
+		(	0.5	0.0	0.5	0.0	)
+		(	0.5	0.0	0.0	0.5	)
+		(	0.0	0.5	0.5	0.0	)
+		(	0.0	0.5	0.0	0.5	)
+		(	0.0	0.0	0.5	0.5	));
+}
+potential ( variable3 | variable1 )
+{
+	data = ((	0.5	0.5	0.0	0.0	)
+		(	0.5	0.0	0.5	0.0	)
+		(	0.5	0.0	0.0	0.5	)
+		(	0.0	0.5	0.5	0.0	)
+		(	0.0	0.5	0.0	0.5	)
+		(	0.0	0.0	0.5	0.5	));
+}
+potential ( variable4 | variable2 variable3 )
+{
+	data = (((	1.0	0.0	0.0	0.0	)
+		(	0.5	0.5	0.0	0.0	)
+		(	0.5	0.0	0.5	0.0	)
+		(	0.5	0.0	0.0	0.5	))
+		((	0.5	0.5	0.0	0.0	)
+		(	0.0	1.0	0.0	0.0	)
+		(	0.0	0.5	0.5	0.0	)
+		(	0.0	0.5	0.0	0.5	))
+		((	0.5	0.0	0.5	0.0	)
+		(	0.0	0.5	0.5	0.0	)
+		(	0.0	0.0	1.0	0.0	)
+		(	0.0	0.0	0.5	0.5	))
+		((	0.5	0.0	0.0	0.5	)
+		(	0.0	0.5	0.0	0.5	)
+		(	0.0	0.0	0.5	0.5	)
+		(	0.0	0.0	0.0	1.0	)));
+}
+potential ( variable1 | variable0 )
+{
+	data = ((	0.0	0.0	0.0	0.0	0.0	1.0	)
+		(	0.0	0.0	0.0	0.0	1.0	0.0	)
+		(	0.0	0.0	0.0	1.0	0.0	0.0	)
+		(	0.0	0.0	1.0	0.0	0.0	0.0	)
+		(	0.0	1.0	0.0	0.0	0.0	0.0	)
+		(	1.0	0.0	0.0	0.0	0.0	0.0	));
+}
+potential ( variable0 | )
+{
+	data = (	0.16666666666666666	0.16666666666666666	0.16666666666666666	0.16666666666666666	0.16666666666666666	0.16666666666666666	);
+}

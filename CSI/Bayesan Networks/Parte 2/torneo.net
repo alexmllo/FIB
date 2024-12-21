@@ -1,0 +1,75 @@
+net
+{
+	propagationenginegenerator1791944048146838126L = "edu.ucla.belief.approx.BeliefPropagationSettings@272b54f6";
+	jenginegenerator6060830225489488864L = "edu.ucla.belief.inference.JoinTreeSettings@693adc13";
+	recoveryenginegenerator6944530267470113528l = "edu.ucla.util.SettingsImpl@6fe4f11d";
+	node_size = (130 55);
+}
+
+node variable8
+{
+	states = ("Gana_B" "Gana_C" );
+	position = (379 -25);
+	diagnosistype = "AUXILIARY";
+	DSLxSUBMODEL = "Root Submodel";
+	ismapvariable = "false";
+	ID = "variable8";
+	label = "Ronda 2";
+	excludepolicy = "include whole CPT";
+}
+node variable9
+{
+	states = ("Gana_A" "Gana_C" );
+	position = (628 -28);
+	diagnosistype = "AUXILIARY";
+	DSLxSUBMODEL = "Root Submodel";
+	ismapvariable = "false";
+	ID = "variable9";
+	label = "Ronda 3";
+	excludepolicy = "include whole CPT";
+}
+node variable7
+{
+	states = ("Gana_A" "Gana_B" );
+	position = (141 -19);
+	diagnosistype = "AUXILIARY";
+	DSLxSUBMODEL = "Root Submodel";
+	ismapvariable = "false";
+	ID = "variable7";
+	label = "Ronda 1";
+	excludepolicy = "include whole CPT";
+}
+node variable13
+{
+	states = ("A" "B" "C" );
+	position = (391 -315);
+	diagnosistype = "AUXILIARY";
+	DSLxSUBMODEL = "Root Submodel";
+	ismapvariable = "false";
+	ID = "variable13";
+	label = "Ganador";
+	excludepolicy = "include whole CPT";
+}
+potential ( variable8 | )
+{
+	data = (	0.5	0.5	);
+}
+potential ( variable9 | )
+{
+	data = (	0.5	0.5	);
+}
+potential ( variable7 | )
+{
+	data = (	0.5	0.5	);
+}
+potential ( variable13 | variable7 variable8 variable9 )
+{
+	data = ((((	1.0	0.0	0.0	)
+		(	0.33333333333333337	0.33333333333333337	0.33333333333333337	))
+		((	1.0	0.0	0.0	)
+		(	0.0	0.0	1.0	)))
+		(((	0.0	1.0	0.0	)
+		(	0.0	1.0	0.0	))
+		((	0.33333333333333337	0.33333333333333337	0.33333333333333337	)
+		(	0.0	0.0	1.0	))));
+}
